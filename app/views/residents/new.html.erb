@@ -1,0 +1,100 @@
+<!-- Validation failure messages -->
+
+<% if @resident.errors.any? %>
+  <% @resident.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Resident</h3>
+      </div>
+      <div class="panel-body">
+        <form action="/create_resident" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for name -->
+          <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">
+              Name
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @resident.name %>">
+            </div>
+          </div>
+
+          <!-- Label and input for apt -->
+          <div class="form-group">
+            <label for="apt" class="col-sm-2 control-label">
+              Apt
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="apt" name="apt" placeholder="Apt" class="form-control" value="<%= @resident.apt %>">
+            </div>
+          </div>
+
+          <!-- Label and input for email -->
+          <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">
+              Email
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @resident.email %>">
+            </div>
+          </div>
+
+          <!-- Label and input for phone -->
+          <div class="form-group">
+            <label for="phone" class="col-sm-2 control-label">
+              Phone
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="phone" name="phone" placeholder="Phone" class="form-control" value="<%= @resident.phone %>">
+            </div>
+          </div>
+
+          <!-- Label and input for passcode -->
+          <div class="form-group">
+            <label for="passcode" class="col-sm-2 control-label">
+              Passcode
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="passcode" name="passcode" placeholder="Passcode" class="form-control" value="<%= @resident.passcode %>">
+            </div>
+          </div>
+
+          <!-- Label and input for photo -->
+          <div class="form-group">
+            <label for="photo" class="col-sm-2 control-label">
+              Photo Link
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="photo" name="photo" placeholder="Photo" class="form-control" value="<%= @resident.photo %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-success">
+                Create Resident
+              </button>
+              or
+              <a href="/residents">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

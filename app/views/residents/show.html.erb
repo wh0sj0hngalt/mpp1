@@ -1,0 +1,63 @@
+<!-- Responsive panel example-->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Resident: <%= @resident.name %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+
+              <dt>Apt</dt>
+              <dd><%= @resident.apt %></dd>
+
+              <dt>Email</dt>
+              <dd><%= @resident.email %></dd>
+
+              <dt>Phone</dt>
+              <dd><%= @resident.phone %></dd>
+
+              <dt>Passcode</dt>
+              <dd><%= @resident.passcode %></dd>
+
+              <dt>Photo</dt>
+              <dd><img src="<%= @resident.photo %>" height="150" width="100"></dd>
+
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/residents" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
+
+              <a href="/residents/<%= @resident.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+
+              <a href="/delete_resident/<%= @resident.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-success">
+          Packages
+        </li>
+        <% @resident.packages.each do |package| %>
+          <li class="list-group-item">
+            Location " <%= package.location %> " has one <%= package.carrier %> package received <%= package.created_at.strftime("%b %u,%Y") %>. Pick up status: <%= package.pickup %>
+          </li>
+        <% end %>
+      </ul>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->
