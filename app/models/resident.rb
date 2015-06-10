@@ -4,7 +4,6 @@ class Resident < ActiveRecord::Base
   validates :apt, :presence => true
   validates :email, :presence => true, :uniqueness => true
   validates :phone, :presence => true, :uniqueness => true
-  validates :passcode, :presence => true
   validates :photo, :presence => true
 
   has_many :packages

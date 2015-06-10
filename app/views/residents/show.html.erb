@@ -20,9 +20,6 @@
               <dt>Phone</dt>
               <dd><%= @resident.phone %></dd>
 
-              <dt>Passcode</dt>
-              <dd><%= @resident.passcode %></dd>
-
               <dt>Photo</dt>
               <dd><img src="<%= @resident.photo %>" height="150" width="100"></dd>
 
@@ -50,7 +47,7 @@
         </li>
         <% @resident.packages.each do |package| %>
           <li class="list-group-item">
-            Location " <%= package.location %> " has one <%= package.carrier %> package received <%= package.created_at.strftime("%b %u,%Y") %>. Pick up status: <%= package.pickup %>
+            Location " <%= package.location %> " has one <%= package.carrier %> <a href="/packages/<%= package.id %>"> package </a> received <%= package.created_at.strftime("%b %u,%Y") %>. Pick up status: <%= package.pickup %>
           </li>
         <% end %>
       </ul>
